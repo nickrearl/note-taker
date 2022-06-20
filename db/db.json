@@ -1,8 +1,12 @@
-{
-  "db": [
-    {
-      "title": "Test Title",
-      "text": "Test text"
-    }
-  ]
-}
+[
+  {
+    "title": "First note",
+    "text": "write more notes\n",
+    "id": "ed9ed1d1-1313-4139-bfa4-5ee77292d061"
+  },
+  {
+    "title": "Second note",
+    "text": "keep it up",
+    "id": "5627012b-394e-4036-860a-2940c45360b6"
+  }
+]

@@ -1,4 +1,5 @@
 const express = require('express')
+const { v4: uuidv4} = require('uuid')
 
 const path = require('path')
 const fs = require('fs')
@@ -17,7 +18,7 @@ app.use(express.static('public'))
 function createNewNote(body, notesArray) {
     const note = body
     notesArray.push(note)
-    fs.writeFileSync(path.join(__dirname, './db/db.json'), JSON.stringify({ db: notesArray }, null, 2))
+    fs.writeFileSync(path.join(__dirname, './db/db.json'), JSON.stringify(notesArray, null, 2))
 }
 
 app.get('/', (req, res)=>{
@@ -34,7 +35,9 @@ app.get('/api/notes', (req, res)=>{
 })
 
 app.post('/api/notes', (req, res)=>{
-    
+
+    req.body.id = uuidv4()
+
     createNewNote(req.body, db)
     
     res.json(db)
